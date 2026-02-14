@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Small Room Cinema</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-deep: #0f0f1a;
+  --bg-card: #1a1a2e;
+  --bg-card-hover: #222240;
+  --gold: #d4af37;
+  --gold-light: #f0c040;
+  --gold-dim: #b8962e;
+  --cream: #f5f0e1;
+  --cream-dim: #c4bfb0;
+  --red: #c0392b;
+  --green: #27ae60;
+  --alt-badge: #8e44ad;
+  --oscar-badge: #d4af37;
+  --classic-badge: #2980b9;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-deep);
+  color: var(--cream);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; }
+
+a { color: var(--gold); text-decoration: none; }
+a:hover { color: var(--gold-light); }
+
+/* ===================== HERO ===================== */
+.hero {
+  text-align: center;
+  padding: 80px 20px 60px;
+  background: linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 50%, #0f0f1a 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-icon {
+  font-size: 3em;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.hero h1 {
+  font-size: clamp(2.5em, 6vw, 4.5em);
+  font-weight: 900;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 40px rgba(212,175,55,0.3);
+  margin-bottom: 10px;
+}
+
+.hero .tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.15em;
+  color: var(--cream-dim);
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.hero .subtitle {
+  font-style: italic;
+  color: var(--cream-dim);
+  font-size: 1em;
+  opacity: 0.7;
+}
+
+.divider {
+  width: 80px;
+  height: 2px;
+  background: var(--gold);
+  margin: 30px auto;
+  opacity: 0.5;
+}
+
+/* ===================== NAV ===================== */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 18px 20px;
+  background: rgba(15,15,26,0.95);
+  border-bottom: 1px solid rgba(212,175,55,0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  flex-wrap: wrap;
+}
+
+nav a {
+  font-size: 0.85em;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  transition: color 0.3s;
+}
+
+nav a:hover { color: var(--gold); }
+
+/* ===================== SECTIONS ===================== */
+section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.section-title {
+  font-size: 2em;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--cream-dim);
+  margin-bottom: 40px;
+  font-size: 0.95em;
+}
+
+/* ===================== BADGES ===================== */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 3px;
+  font-size: 0.7em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.badge-alt { background: var(--alt-badge); color: #fff; }
+.badge-oscar { background: var(--oscar-badge); color: #1a1a2e; }
+.badge-classic { background: var(--classic-badge); color: #fff; }
+
+/* ===================== SCHEDULE GRID ===================== */
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.screening-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(212,175,55,0.12);
+  border-radius: 8px;
+  padding: 24px;
+  transition: all 0.3s;
+  cursor: pointer;
+  position: relative;
+}
+
+.screening-card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(212,175,55,0.35);
+  box-shadow: 0 8px 30px rgba(212,175,55,0.08);
+  transform: translateY(-3px);
+}
+
+.screening-date {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8em;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.screening-card h3 {
+  font-size: 1.35em;
+  color: var(--cream);
+  margin-bottom: 4px;
+}
+
+.screening-card .year {
+  color: var(--cream-dim);
+  font-size: 0.9em;
+}
+
+.screening-card .director {
+  color: var(--cream-dim);
+  font-size: 0.85em;
+  margin-bottom: 10px;
+}
+
+.screening-card .meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.screening-card .runtime {
+  font-size: 0.8em;
+  color: var(--cream-dim);
+}
+
+.rsvp-count {
+  font-size: 0.8em;
+  color: var(--gold-dim);
+}
+
+/* ===================== FILM DETAIL MODAL ===================== */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 200;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal-overlay.active { display: flex; }
+
+.modal {
+  background: var(--bg-card);
+  border: 1px solid rgba(212,175,55,0.2);
+  border-radius: 12px;
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 40px;
+  position: relative;
+  animation: modalIn 0.3s ease;
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.95) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: var(--cream-dim);
+  font-size: 1.8em;
+  cursor: pointer;
+  transition: color 0.3s;
+  line-height: 1;
+}
+
+.modal-close:hover { color: var(--gold); }
+
+.modal h2 {
+  font-size: 1.8em;
+  color: var(--cream);
+  margin-bottom: 4px;
+}
+
+.modal .film-year-dir {
+  color: var(--cream-dim);
+  margin-bottom: 16px;
+  font-size: 0.95em;
+}
+
+.modal .badges { margin-bottom: 16px; }
+
+.modal .synopsis {
+  color: var(--cream-dim);
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-size: 0.95em;
+}
+
+.modal .details-row {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  font-size: 0.9em;
+  color: var(--cream-dim);
+}
+
+.modal .details-row span strong {
+  color: var(--cream);
+}
+
+.trailer-link {
+  display: inline-block;
+  padding: 10px 24px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.9em;
+  transition: all 0.3s;
+  margin-bottom: 20px;
+}
+
+.trailer-link:hover {
+  background: var(--gold);
+  color: var(--bg-deep);
+}
+
+/* ===================== RSVP ===================== */
+.rsvp-section {
+  border-top: 1px solid rgba(212,175,55,0.15);
+  padding-top: 20px;
+  margin-top: 10px;
+}
+
+.rsvp-section h4 {
+  font-size: 1em;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.rsvp-form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.rsvp-form input {
+  flex: 1;
+  min-width: 180px;
+  padding: 10px 14px;
+  background: var(--bg-deep);
+  border: 1px solid rgba(212,175,55,0.2);
+  border-radius: 4px;
+  color: var(--cream);
+  font-size: 0.9em;
+}
+
+.rsvp-form input::placeholder { color: var(--cream-dim); opacity: 0.5; }
+.rsvp-form input:focus { outline: none; border-color: var(--gold); }
+
+.btn {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: all 0.3s;
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: var(--bg-deep);
+}
+
+.btn-gold:hover {
+  background: var(--gold-light);
+  box-shadow: 0 4px 15px rgba(212,175,55,0.3);
+}
+
+.rsvp-names {
+  margin-top: 12px;
+  font-size: 0.85em;
+  color: var(--cream-dim);
+}
+
+.rsvp-names span {
+  display: inline-block;
+  background: rgba(212,175,55,0.1);
+  padding: 3px 10px;
+  border-radius: 3px;
+  margin: 3px 4px 3px 0;
+}
+
+/* ===================== VOTING ===================== */
+.vote-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.vote-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(212,175,55,0.12);
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.3s;
+}
+
+.vote-card:hover {
+  border-color: rgba(212,175,55,0.3);
+}
+
+.vote-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--gold-dim);
+  background: transparent;
+  color: var(--gold);
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: all 0.3s;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.vote-btn:hover {
+  background: rgba(212,175,55,0.15);
+  border-color: var(--gold);
+}
+
+.vote-btn .count {
+  font-size: 0.65em;
+  margin-top: 2px;
+}
+
+.vote-info h4 {
+  font-size: 1.05em;
+  color: var(--cream);
+  margin-bottom: 2px;
+}
+
+.vote-info p {
+  font-size: 0.85em;
+  color: var(--cream-dim);
+}
+
+/* ===================== SUGGEST ===================== */
+.suggest-form {
+  max-width: 500px;
+  margin: 30px auto 0;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.suggest-form input {
+  flex: 1;
+  min-width: 200px;
+  padding: 12px 16px;
+  background: var(--bg-card);
+  border: 1px solid rgba(212,175,55,0.2);
+  border-radius: 4px;
+  color: var(--cream);
+  font-size: 0.95em;
+}
+
+.suggest-form input::placeholder { color: var(--cream-dim); opacity: 0.5; }
+.suggest-form input:focus { outline: none; border-color: var(--gold); }
+
+/* ===================== FOOTER ===================== */
+footer {
+  background: var(--bg-card);
+  border-top: 1px solid rgba(212,175,55,0.1);
+  padding: 50px 20px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+footer h3 {
+  color: var(--gold);
+  font-size: 1.4em;
+  margin-bottom: 16px;
+}
+
+footer p {
+  color: var(--cream-dim);
+  font-size: 0.9em;
+  max-width: 600px;
+  margin: 0 auto 8px;
+  line-height: 1.7;
+}
+
+footer .footer-note {
+  margin-top: 30px;
+  font-size: 0.75em;
+  color: rgba(245,240,225,0.3);
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 600px) {
+  .hero { padding: 50px 20px 40px; }
+  section { padding: 40px 16px; }
+  nav { gap: 16px; }
+  .modal { padding: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== HERO ==================== -->
+<div class="hero">
+  <span class="hero-icon">🎬</span>
+  <h1>The Small Room Cinema</h1>
+  <div class="divider"></div>
+</div>
+
+<!-- ==================== NAV ==================== -->
+<nav>
+  <a href="#schedule">Schedule</a>
+  <a href="#vote">Vote Next</a>
+  <a href="#about">About</a>
+</nav>
+
+<!-- ==================== SCHEDULE ==================== -->
+<section id="schedule">
+  <h2 class="section-title">Upcoming Screenings</h2>
+  <p class="section-subtitle">Click any screening to see details &amp; RSVP</p>
+  <div class="schedule-grid" id="scheduleGrid"></div>
+</section>
+
+<!-- ==================== VOTING ==================== -->
+<section id="vote">
+  <h2 class="section-title">Vote for Next Screening</h2>
+  <p class="section-subtitle">Help choose what we watch next &mdash; or suggest something new</p>
+  <div class="vote-grid" id="voteGrid"></div>
+  <div class="suggest-form">
+    <input type="text" id="suggestInput" placeholder="Suggest a film..." maxlength="100">
+    <button class="btn btn-gold" onclick="addSuggestion()">Suggest</button>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer id="about">
+  <h3>About The Small Room Cinema</h3>
+  <p>
+    A neighborhood gathering to watch great cinema. From independent voices
+    to Academy favourites and the timeless greats &mdash; our screenings
+    celebrate the art of film in an intimate, welcoming setting &mdash;
+    literally a small room.
+  </p>
+  <p class="footer-note">The Small Room Cinema &mdash; est. 2025</p>
+</footer>
+
+<!-- ==================== FILM DETAIL MODAL ==================== -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modalContent">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+// ========================================================
+// FILM DATA — loaded from films.json
+// ========================================================
+let films = [];
+let defaultCandidates = [];
+
+async function loadFilmData() {
+  try {
+    const res = await fetch('/films.json');
+    if (res.ok) {
+      const data = await res.json();
+      films = data.films || [];
+      defaultCandidates = data.candidates || [];
+    }
+  } catch (e) {
+    console.warn('Could not load films.json');
+  }
+}
+
+// ========================================================
+// SHARED BACKEND (local Python server)
+// ========================================================
+const API_URL = '/api/data';
+
+// In-memory cache of shared data
+let sharedData = { votes: {}, candidates: [], rsvps: {} };
+
+async function loadSharedData() {
+  try {
+    const res = await fetch(API_URL);
+    if (res.ok) sharedData = await res.json();
+  } catch (e) {
+    console.warn('Could not load shared data, using defaults.');
+  }
+  if (!sharedData.candidates || sharedData.candidates.length === 0) {
+    sharedData.candidates = [...defaultCandidates];
+  }
+  if (!sharedData.votes) sharedData.votes = {};
+  if (!sharedData.rsvps) sharedData.rsvps = {};
+}
+
+async function saveSharedData() {
+  try {
+    await fetch(API_URL, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(sharedData)
+    });
+  } catch (e) {
+    console.warn('Could not save shared data.');
+  }
+}
+
+// ========================================================
+// RENDER SCHEDULE
+// ========================================================
+function categoryLabel(cat) {
+  if (cat === 'alt') return '<span class="badge badge-alt">Alternative</span>';
+  if (cat === 'oscar') return '<span class="badge badge-oscar">Oscar Nominee</span>';
+  if (cat === 'classic') return '<span class="badge badge-classic">Classic</span>';
+  return '';
+}
+
+function renderSchedule() {
+  const grid = document.getElementById('scheduleGrid');
+  grid.innerHTML = films.map(f => {
+    const rsvps = sharedData.rsvps[f.id] || [];
+    return `
+      <div class="screening-card" onclick="openModal('${f.id}')">
+        <div class="screening-date">${f.date} &mdash; ${f.time}</div>
+        <h3>${f.title}</h3>
+        <div class="year">${f.year} &middot; ${f.genre}</div>
+        <div class="director">Dir. ${f.director}</div>
+        ${categoryLabel(f.category)}
+        <div class="meta">
+          <span class="runtime">${f.runtime}</span>
+          <span class="rsvp-count">${rsvps.length} RSVP${rsvps.length !== 1 ? 's' : ''}</span>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// ========================================================
+// MODAL
+// ========================================================
+function openModal(filmId) {
+  const f = films.find(x => x.id === filmId);
+  if (!f) return;
+
+  const rsvps = sharedData.rsvps[f.id] || [];
+
+  document.getElementById('modalBody').innerHTML = `
+    <h2>${f.title}</h2>
+    <div class="film-year-dir">${f.year} &middot; Dir. ${f.director}</div>
+    <div class="badges" style="margin-bottom:16px;">
+      ${categoryLabel(f.category)}
+    </div>
+    <p class="synopsis">${f.synopsis}</p>
+    <div class="details-row">
+      <span><strong>Runtime:</strong> ${f.runtime}</span>
+      <span><strong>Genre:</strong> ${f.genre}</span>
+      <span><strong>Screening:</strong> ${f.date}, ${f.time}</span>
+    </div>
+    <a class="trailer-link" href="${f.trailer}" target="_blank" rel="noopener">&#9654; Watch Trailer</a>
+
+    <div class="rsvp-section">
+      <h4>RSVP for this screening (${rsvps.length} attending)</h4>
+      <div class="rsvp-form">
+        <input type="text" id="rsvpName" placeholder="Your name" maxlength="40">
+        <button class="btn btn-gold" onclick="submitRsvp('${f.id}')">RSVP</button>
+      </div>
+      <div class="rsvp-names" id="rsvpNames_${f.id}">
+        ${rsvps.map(n => `<span>${escapeHtml(n)}</span>`).join('')}
+      </div>
+    </div>
+  `;
+
+  document.getElementById('modalOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('modalOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
+
+// ========================================================
+// RSVP
+// ========================================================
+async function submitRsvp(filmId) {
+  const input = document.getElementById('rsvpName');
+  const name = input.value.trim();
+  if (!name) return;
+
+  // Reload latest data first to avoid overwriting others
+  await loadSharedData();
+
+  if (!sharedData.rsvps[filmId]) sharedData.rsvps[filmId] = [];
+  if (sharedData.rsvps[filmId].includes(name)) {
+    input.value = '';
+    input.placeholder = 'Already RSVP\'d!';
+    return;
+  }
+
+  sharedData.rsvps[filmId].push(name);
+  await saveSharedData();
+  input.value = '';
+
+  openModal(filmId);
+  renderSchedule();
+}
+
+// ========================================================
+// VOTING
+// ========================================================
+function renderVoting() {
+  const candidates = sharedData.candidates.length > 0 ? sharedData.candidates : defaultCandidates;
+  const votes = sharedData.votes || {};
+
+  document.getElementById('voteGrid').innerHTML = candidates.map(c => {
+    const count = votes[c.id] || 0;
+    return `
+      <div class="vote-card">
+        <button class="vote-btn" onclick="castVote('${c.id}')">
+          &#9650;
+          <span class="count">${count}</span>
+        </button>
+        <div class="vote-info">
+          <h4>${escapeHtml(c.title)}</h4>
+          <p>${escapeHtml(c.info)}</p>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+async function castVote(candidateId) {
+  await loadSharedData();
+  sharedData.votes[candidateId] = (sharedData.votes[candidateId] || 0) + 1;
+  await saveSharedData();
+  renderVoting();
+}
+
+async function addSuggestion() {
+  const input = document.getElementById('suggestInput');
+  const title = input.value.trim();
+  if (!title) return;
+
+  await loadSharedData();
+  const newId = 'sug_' + Date.now();
+  sharedData.candidates.push({ id: newId, title: escapeHtml(title), info: 'Suggested by audience' });
+  await saveSharedData();
+  input.value = '';
+  renderVoting();
+}
+
+// ========================================================
+// UTILS
+// ========================================================
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+// ========================================================
+// INIT
+// ========================================================
+(async function init() {
+  await loadFilmData();
+  await loadSharedData();
+  renderSchedule();
+  renderVoting();
+})();
+</script>
+</body>
+</html>

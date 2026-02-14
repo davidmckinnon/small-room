@@ -1,0 +1,72 @@
+{
+  "films": [
+    {
+      "id": "hamnet",
+      "title": "Hamnet",
+      "year": 2023,
+      "director": "Clio Barnard",
+      "runtime": "108 min",
+      "genre": "Drama / History",
+      "category": "alt",
+      "synopsis": "Based on Maggie O'Farrell's bestselling novel, Hamnet tells the story of Agnes, wife of William Shakespeare, and the devastating loss of their eleven-year-old son Hamnet to plague in 1596 — and how grief became the seed of Shakespeare's greatest play.",
+      "date": "Sat 14 Feb",
+      "time": "6:30 PM",
+      "trailer": "https://www.youtube.com/results?search_query=hamnet+2023+film+trailer"
+    },
+    {
+      "id": "the_secret_in_their_",
+      "title": "The Secret in Their Eyes",
+      "year": 2009,
+      "director": "Juan José Campanella",
+      "runtime": "129 min",
+      "genre": "Drama, Mystery, Romance",
+      "category": "oscar",
+      "synopsis": "A retired legal counselor writes a novel hoping to find closure for one of his past unresolved homicide cases, and for his unreciprocated love with his superior--both of which still haunt him decades later.",
+      "date": "Sat 21 Feb",
+      "time": "6:30 PM",
+      "trailer": "https://www.youtube.com/results?search_query=The%20Secret%20in%20Their%20Eyes+trailer"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "c1",
+      "title": "Ikiru",
+      "info": "1952 · Akira Kurosawa · 143 min"
+    },
+    {
+      "id": "c2",
+      "title": "The Loneliness of the Long Distance Runner",
+      "info": "1962 · Tony Richardson · 104 min"
+    },
+    {
+      "id": "c3",
+      "title": "The Ascent",
+      "info": "1977 · Larisa Shepitko · 111 min"
+    },
+    {
+      "id": "c4",
+      "title": "The Field",
+      "info": "1990 · Jim Sheridan · 107 min"
+    },
+    {
+      "id": "c5",
+      "title": "The Man Who Planted Trees",
+      "info": "1987 · Frédéric Back · 30 min"
+    },
+    {
+      "id": "c6",
+      "title": "On the Waterfront",
+      "info": "1954 · Elia Kazan · 108 min"
+    },
+    {
+      "id": "c7",
+      "title": "Taxi Driver",
+      "info": "1976 · Martin Scorsese · 114 min"
+    },
+    {
+      "id": "c8",
+      "title": "La Haine",
+      "info": "1995 · Mathieu Kassovitz · 98 min"
+    }
+  ]
+}

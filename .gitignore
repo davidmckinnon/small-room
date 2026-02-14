@@ -1,0 +1,4 @@
+.omdb_key
+data.json
+__pycache__/
+*.pyc
