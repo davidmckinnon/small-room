@@ -437,6 +437,12 @@ section {
   border-color: var(--gold);
 }
 
+.vote-btn.voted {
+  background: rgba(212,175,55,0.25);
+  border-color: var(--gold);
+  color: var(--gold-light);
+}
+
 .vote-btn .count {
   font-size: 0.65em;
   margin-top: 2px;
@@ -733,15 +739,26 @@ async function submitRsvp(filmId) {
 // ========================================================
 // VOTING
 // ========================================================
+function getMyVotes() {
+  try { return JSON.parse(localStorage.getItem('myVotes') || '{}'); }
+  catch { return {}; }
+}
+
+function saveMyVotes(v) {
+  localStorage.setItem('myVotes', JSON.stringify(v));
+}
+
 function renderVoting() {
   const candidates = sharedData.candidates.length > 0 ? sharedData.candidates : defaultCandidates;
   const votes = sharedData.votes || {};
+  const myVotes = getMyVotes();
 
   document.getElementById('voteGrid').innerHTML = candidates.map(c => {
     const count = votes[c.id] || 0;
+    const voted = myVotes[c.id] ? 'voted' : '';
     return `
       <div class="vote-card">
-        <button class="vote-btn" onclick="castVote('${c.id}')">
+        <button class="vote-btn ${voted}" onclick="castVote('${c.id}')">
           &#9650;
           <span class="count">${count}</span>
         </button>
@@ -756,7 +773,19 @@ function renderVoting() {
 
 async function castVote(candidateId) {
   await loadSharedData();
-  sharedData.votes[candidateId] = (sharedData.votes[candidateId] || 0) + 1;
+  const myVotes = getMyVotes();
+
+  if (myVotes[candidateId]) {
+    // Un-vote
+    sharedData.votes[candidateId] = Math.max(0, (sharedData.votes[candidateId] || 0) - 1);
+    delete myVotes[candidateId];
+  } else {
+    // Vote
+    sharedData.votes[candidateId] = (sharedData.votes[candidateId] || 0) + 1;
+    myVotes[candidateId] = true;
+  }
+
+  saveMyVotes(myVotes);
   await saveSharedData();
   renderVoting();
 }
