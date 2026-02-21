@@ -599,8 +599,8 @@ async function loadFilmData() {
 // ========================================================
 const API_URL = '/api/data';
 
-// In-memory cache of shared data
-let sharedData = { votes: {}, candidates: [], rsvps: {} };
+// In-memory cache of shared data (votes, rsvps, audience suggestions only)
+let sharedData = { votes: {}, suggestions: [], rsvps: {} };
 
 async function loadSharedData() {
   try {
@@ -609,11 +609,9 @@ async function loadSharedData() {
   } catch (e) {
     console.warn('Could not load shared data, using defaults.');
   }
-  if (!sharedData.candidates || sharedData.candidates.length === 0) {
-    sharedData.candidates = [...defaultCandidates];
-  }
   if (!sharedData.votes) sharedData.votes = {};
   if (!sharedData.rsvps) sharedData.rsvps = {};
+  if (!sharedData.suggestions) sharedData.suggestions = [];
 }
 
 async function saveSharedData() {
@@ -626,6 +624,11 @@ async function saveSharedData() {
   } catch (e) {
     console.warn('Could not save shared data.');
   }
+}
+
+// All candidates = films.json candidates + audience suggestions
+function getAllCandidates() {
+  return [...defaultCandidates, ...(sharedData.suggestions || [])];
 }
 
 // ========================================================
@@ -749,7 +752,7 @@ function saveMyVotes(v) {
 }
 
 function renderVoting() {
-  const candidates = sharedData.candidates.length > 0 ? sharedData.candidates : defaultCandidates;
+  const candidates = getAllCandidates();
   const votes = sharedData.votes || {};
   const myVotes = getMyVotes();
 
@@ -797,7 +800,7 @@ async function addSuggestion() {
 
   await loadSharedData();
   const newId = 'sug_' + Date.now();
-  sharedData.candidates.push({ id: newId, title: escapeHtml(title), info: 'Suggested by audience' });
+  sharedData.suggestions.push({ id: newId, title: escapeHtml(title), info: 'Suggested by audience' });
   await saveSharedData();
   input.value = '';
   renderVoting();
