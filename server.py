@@ -13,7 +13,7 @@ def load_data():
     if os.path.exists(DATA_FILE):
         with open(DATA_FILE) as f:
             return json.load(f)
-    return {"votes": {}, "candidates": [], "rsvps": {}}
+    return {"votes": {}, "suggestions": [], "rsvps": {}}
 
 def save_data(data):
     with open(DATA_FILE, 'w') as f:
