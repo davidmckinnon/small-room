@@ -25,6 +25,19 @@
       "date": "Sat 21 Feb",
       "time": "6:30 PM",
       "trailer": "https://www.youtube.com/results?search_query=The%20Secret%20in%20Their%20Eyes+trailer"
+    },
+    {
+      "id": "my_brilliant_career",
+      "title": "My Brilliant Career",
+      "year": 1979,
+      "director": "Gillian Armstrong",
+      "runtime": "100 min",
+      "genre": "Biography, Drama, Romance",
+      "category": "classic",
+      "synopsis": "A proud young woman in early 20th century Australia must choose between marriage and independence.",
+      "date": "Sat 7 Mar",
+      "time": "6:30 PM",
+      "trailer": "https://www.youtube.com/results?search_query=My%20Brilliant%20Career+trailer"
     }
   ],
   "candidates": [
