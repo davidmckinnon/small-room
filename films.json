@@ -38,6 +38,19 @@
       "date": "Sat 7 Mar",
       "time": "6:30 PM",
       "trailer": "https://www.youtube.com/results?search_query=My%20Brilliant%20Career+trailer"
+    },
+    {
+      "id": "the_worst_person_in_",
+      "title": "The Worst Person in the World",
+      "year": 2021,
+      "director": "Joachim Trier",
+      "runtime": "128 min",
+      "genre": "Comedy, Drama, Romance",
+      "category": "alt",
+      "synopsis": "The chronicles of four years in the life of Julie, a young woman who navigates the troubled waters of her love life and struggles to find her career path, leading her to take a realistic look at who she really is.",
+      "date": "Sat 14 Mar",
+      "time": "7:00 PM",
+      "trailer": "https://www.youtube.com/results?search_query=The%20Worst%20Person%20in%20the%20World+trailer"
     }
   ],
   "candidates": [
