@@ -482,6 +482,41 @@ section {
 .suggest-form input::placeholder { color: var(--cream-dim); opacity: 0.5; }
 .suggest-form input:focus { outline: none; border-color: var(--gold); }
 
+/* ===================== PAST SCREENINGS ===================== */
+.past-list {
+  list-style: none;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.past-item {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(212,175,55,0.07);
+  font-size: 0.9em;
+}
+
+.past-item:last-child { border-bottom: none; }
+
+.past-title {
+  font-family: 'Playfair Display', serif;
+  color: var(--cream-dim);
+}
+
+.past-meta {
+  color: rgba(245,240,225,0.35);
+  font-size: 0.85em;
+}
+
+.past-date {
+  margin-left: auto;
+  color: rgba(212,175,55,0.4);
+  font-size: 0.8em;
+  white-space: nowrap;
+}
+
 /* ===================== FOOTER ===================== */
 footer {
   background: var(--bg-card);
@@ -533,6 +568,7 @@ footer .footer-note {
 <nav>
   <a href="#schedule">Schedule</a>
   <a href="#vote">Vote Next</a>
+  <a href="#past">Past</a>
   <a href="#about">About</a>
 </nav>
 
@@ -552,6 +588,12 @@ footer .footer-note {
     <input type="text" id="suggestInput" placeholder="Suggest a film..." maxlength="100">
     <button class="btn btn-gold" onclick="addSuggestion()">Suggest</button>
   </div>
+</section>
+
+<!-- ==================== PAST SCREENINGS ==================== -->
+<section id="past">
+  <h2 class="section-title">Past Screenings</h2>
+  <ul class="past-list" id="pastList"></ul>
 </section>
 
 <!-- ==================== FOOTER ==================== -->
@@ -579,6 +621,7 @@ footer .footer-note {
 // FILM DATA — loaded from films.json
 // ========================================================
 let films = [];
+let pastFilms = [];
 let defaultCandidates = [];
 
 async function loadFilmData() {
@@ -587,6 +630,7 @@ async function loadFilmData() {
     if (res.ok) {
       const data = await res.json();
       films = data.films || [];
+      pastFilms = data.past || [];
       defaultCandidates = data.candidates || [];
     }
   } catch (e) {
@@ -807,6 +851,20 @@ async function addSuggestion() {
 }
 
 // ========================================================
+// PAST SCREENINGS
+// ========================================================
+function renderPast() {
+  const list = document.getElementById('pastList');
+  list.innerHTML = pastFilms.map(f => `
+    <li class="past-item">
+      <span class="past-title">${escapeHtml(f.title)}</span>
+      <span class="past-meta">${f.year} &middot; ${escapeHtml(f.director)}</span>
+      <span class="past-date">${f.date}</span>
+    </li>
+  `).join('');
+}
+
+// ========================================================
 // UTILS
 // ========================================================
 function escapeHtml(str) {
@@ -823,6 +881,7 @@ function escapeHtml(str) {
   await loadSharedData();
   renderSchedule();
   renderVoting();
+  renderPast();
 })();
 </script>
 </body>
