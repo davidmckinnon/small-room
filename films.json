@@ -11,22 +11,15 @@
       "year": 2009,
       "director": "Juan José Campanella",
       "date": "Sat 21 Feb"
-    }
-  ],
-  "films": [
+    },
     {
-      "id": "my_brilliant_career",
       "title": "My Brilliant Career",
       "year": 1979,
       "director": "Gillian Armstrong",
-      "runtime": "100 min",
-      "genre": "Biography, Drama, Romance",
-      "category": "classic",
-      "synopsis": "A proud young woman in early 20th century Australia must choose between marriage and independence.",
-      "date": "Sat 7 Mar",
-      "time": "6:30 PM",
-      "trailer": "https://www.youtube.com/results?search_query=My%20Brilliant%20Career+trailer"
-    },
+      "date": "Sat 7 Mar"
+    }
+  ],
+  "films": [
     {
       "id": "the_worst_person_in_",
       "title": "The Worst Person in the World",
