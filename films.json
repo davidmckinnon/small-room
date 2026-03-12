@@ -51,6 +51,19 @@
       "date": "Sat 21 Mar",
       "time": "7:00 PM",
       "trailer": "https://www.youtube.com/results?search_query=Viola+trailer"
+    },
+    {
+      "id": "the_seed_of_the_sacr",
+      "title": "The Seed of the Sacred Fig",
+      "year": 2024,
+      "director": "Mohammad Rasoulof",
+      "runtime": "167 min",
+      "genre": "Crime, Drama, Thriller",
+      "category": "oscar",
+      "synopsis": "An investigating judge struggles with paranoia amid political unrest in Tehran caused by the death of a young woman. When his gun goes missing, he suspects his wife and daughters, imposing harsh measures that fray family ties.",
+      "date": "Sat 28 Mar",
+      "time": "7:00 PM",
+      "trailer": "https://www.youtube.com/results?search_query=The%20Seed%20of%20the%20Sacred%20Fig+trailer"
     }
   ],
   "candidates": [
@@ -98,11 +111,6 @@
       "id": "c10",
       "title": "There's Still Tomorrow",
       "info": "2023 · Paola Cortellesi · 118 min"
-    },
-    {
-      "id": "c10",
-      "title": "The Seed of the Sacred Fig",
-      "info": "2024 · Mohammad Rasoulof · 167 min"
     }
   ]
 }
