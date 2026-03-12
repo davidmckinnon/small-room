@@ -38,6 +38,19 @@
       "date": "Sat 14 Mar",
       "time": "7:00 PM",
       "trailer": "https://www.youtube.com/results?search_query=The%20Worst%20Person%20in%20the%20World+trailer"
+    },
+    {
+      "id": "viola",
+      "title": "Viola",
+      "year": 2012,
+      "director": "Matías Piñeiro",
+      "runtime": "65 min",
+      "genre": "Drama",
+      "category": "alt",
+      "synopsis": "A group of actresses performing in a production of Shakespeare's \"Twelfth Night\" get caught up in a web of romantic intrigue and revelation.",
+      "date": "Sat 21 Mar",
+      "time": "6:30 PM",
+      "trailer": "https://www.youtube.com/results?search_query=Viola+trailer"
     }
   ],
   "candidates": [
