@@ -23,22 +23,15 @@
       "year": 1979,
       "director": "Gillian Armstrong",
       "date": "Sat 7 Mar"
-    }
-  ],
-  "films": [
+    },
     {
-      "id": "the_worst_person_in_",
       "title": "The Worst Person in the World",
       "year": 2021,
       "director": "Joachim Trier",
-      "runtime": "128 min",
-      "genre": "Comedy, Drama, Romance",
-      "category": "alt",
-      "synopsis": "The chronicles of four years in the life of Julie, a young woman who navigates the troubled waters of her love life and struggles to find her career path, leading her to take a realistic look at who she really is.",
-      "date": "Sat 14 Mar",
-      "time": "7:00 PM",
-      "trailer": "https://www.youtube.com/results?search_query=The%20Worst%20Person%20in%20the%20World+trailer"
-    },
+      "date": "Sat 14 Mar"
+    }
+  ],
+  "films": [
     {
       "id": "viola",
       "title": "Viola",
@@ -48,7 +41,7 @@
       "genre": "Drama",
       "category": "alt",
       "synopsis": "A group of actresses performing in a production of Shakespeare's \"Twelfth Night\" get caught up in a web of romantic intrigue and revelation.",
-      "date": "Sat 21 Mar",
+      "date": "Sat 28 Mar",
       "time": "7:00 PM",
       "trailer": "https://www.youtube.com/results?search_query=Viola+trailer"
     },
@@ -61,7 +54,7 @@
       "genre": "Crime, Drama, Thriller",
       "category": "oscar",
       "synopsis": "An investigating judge struggles with paranoia amid political unrest in Tehran caused by the death of a young woman. When his gun goes missing, he suspects his wife and daughters, imposing harsh measures that fray family ties.",
-      "date": "Sat 28 Mar",
+      "date": "Sat 4 Apr",
       "time": "7:00 PM",
       "trailer": "https://www.youtube.com/results?search_query=The%20Seed%20of%20the%20Sacred%20Fig+trailer"
     }
