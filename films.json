@@ -1,22 +1,16 @@
 {
   "past": [
     {
-      "title": "Sentimental Value",
-      "year": 2025,
+      "title": "Viola",
+      "year": 2012,
+      "director": "Matías Piñeiro",
+      "date": "Sat 28 Mar"
+    },
+    {
+      "title": "The Worst Person in the World",
+      "year": 2021,
       "director": "Joachim Trier",
-      "date": "Sat 7 Feb"
-    },
-    {
-      "title": "Hamnet",
-      "year": 2023,
-      "director": "Clio Barnard",
-      "date": "Sat 14 Feb"
-    },
-    {
-      "title": "The Secret in Their Eyes",
-      "year": 2009,
-      "director": "Juan José Campanella",
-      "date": "Sat 21 Feb"
+      "date": "Sat 14 Mar"
     },
     {
       "title": "My Brilliant Career",
@@ -25,25 +19,37 @@
       "date": "Sat 7 Mar"
     },
     {
-      "title": "The Worst Person in the World",
-      "year": 2021,
+      "title": "The Secret in Their Eyes",
+      "year": 2009,
+      "director": "Juan José Campanella",
+      "date": "Sat 21 Feb"
+    },
+    {
+      "title": "Hamnet",
+      "year": 2023,
+      "director": "Clio Barnard",
+      "date": "Sat 14 Feb"
+    },
+    {
+      "title": "Sentimental Value",
+      "year": 2025,
       "director": "Joachim Trier",
-      "date": "Sat 14 Mar"
+      "date": "Sat 7 Feb"
     }
   ],
   "films": [
     {
-      "id": "viola",
-      "title": "Viola",
-      "year": 2012,
-      "director": "Matías Piñeiro",
-      "runtime": "65 min",
+      "id": "the_loneliness_of_t",
+      "title": "The Loneliness of the Long Distance Runner",
+      "year": 1962,
+      "director": "Tony Richardson",
+      "runtime": "104 min",
       "genre": "Drama",
-      "category": "alt",
-      "synopsis": "A group of actresses performing in a production of Shakespeare's \"Twelfth Night\" get caught up in a web of romantic intrigue and revelation.",
-      "date": "Sat 28 Mar",
+      "category": "classic",
+      "synopsis": "A young offender sent to a Borstal reform school becomes the institution's star cross-country runner, using the big race as an act of defiance against the establishment.",
+      "date": "Sat 4 Apr",
       "time": "7:00 PM",
-      "trailer": "https://www.youtube.com/results?search_query=Viola+trailer"
+      "trailer": "https://www.youtube.com/results?search_query=The+Loneliness+of+the+Long+Distance+Runner+trailer"
     },
     {
       "id": "the_seed_of_the_sacr",
@@ -54,7 +60,7 @@
       "genre": "Crime, Drama, Thriller",
       "category": "oscar",
       "synopsis": "An investigating judge struggles with paranoia amid political unrest in Tehran caused by the death of a young woman. When his gun goes missing, he suspects his wife and daughters, imposing harsh measures that fray family ties.",
-      "date": "Sat 4 Apr",
+      "date": "Sat 11 Apr",
       "time": "7:00 PM",
       "trailer": "https://www.youtube.com/results?search_query=The%20Seed%20of%20the%20Sacred%20Fig+trailer"
     }
@@ -64,11 +70,6 @@
       "id": "c1",
       "title": "Ikiru",
       "info": "1952 · Akira Kurosawa · 143 min"
-    },
-    {
-      "id": "c2",
-      "title": "The Loneliness of the Long Distance Runner",
-      "info": "1962 · Tony Richardson · 104 min"
     },
     {
       "id": "c3",
