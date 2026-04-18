@@ -1,6 +1,12 @@
 {
   "past": [
     {
+      "title": "The Loneliness of the Long Distance Runner",
+      "year": 1962,
+      "director": "Tony Richardson",
+      "date": "Sat 4 Apr"
+    },
+    {
       "title": "Viola",
       "year": 2012,
       "director": "Matías Piñeiro",
@@ -39,19 +45,6 @@
   ],
   "films": [
     {
-      "id": "the_loneliness_of_t",
-      "title": "The Loneliness of the Long Distance Runner",
-      "year": 1962,
-      "director": "Tony Richardson",
-      "runtime": "104 min",
-      "genre": "Drama",
-      "category": "classic",
-      "synopsis": "A young offender sent to a Borstal reform school becomes the institution's star cross-country runner, using the big race as an act of defiance against the establishment.",
-      "date": "Sat 4 Apr",
-      "time": "7:00 PM",
-      "trailer": "https://www.youtube.com/results?search_query=The+Loneliness+of+the+Long+Distance+Runner+trailer"
-    },
-    {
       "id": "the_seed_of_the_sacr",
       "title": "The Seed of the Sacred Fig",
       "year": 2024,
@@ -60,7 +53,7 @@
       "genre": "Crime, Drama, Thriller",
       "category": "oscar",
       "synopsis": "An investigating judge struggles with paranoia amid political unrest in Tehran caused by the death of a young woman. When his gun goes missing, he suspects his wife and daughters, imposing harsh measures that fray family ties.",
-      "date": "Sat 11 Apr",
+      "date": "TBA",
       "time": "7:00 PM",
       "trailer": "https://www.youtube.com/results?search_query=The%20Seed%20of%20the%20Sacred%20Fig+trailer"
     }
